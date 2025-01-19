@@ -109,25 +109,25 @@
                         <div class="section-title">
                             <h5>List Name</h5>
                         </div>
-                        <a href="#">Ep 01</a>
-                        <a href="#">Ep 02</a>
-                        <a href="#">Ep 03</a>
-                        <a href="#">Ep 04</a>
-                        <a href="#">Ep 05</a>
-                        <a href="#">Ep 06</a>
-                        <a href="#">Ep 07</a>
-                        <a href="#">Ep 08</a>
-                        <a href="#">Ep 09</a>
-                        <a href="#">Ep 10</a>
-                        <a href="#">Ep 11</a>
-                        <a href="#">Ep 12</a>
-                        <a href="#">Ep 13</a>
-                        <a href="#">Ep 14</a>
-                        <a href="#">Ep 15</a>
-                        <a href="#">Ep 16</a>
-                        <a href="#">Ep 17</a>
-                        <a href="#">Ep 18</a>
-                        <a href="#">Ep 19</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 01</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 02</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 03</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 04</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 05</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 06</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 07</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 08</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 09</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 10</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 11</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 12</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 13</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 14</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 15</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 16</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 17</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 18</a>
+                        <a href="#" class="episode" data-video="videos/1.mp4">Ep 19</a>
                     </div>
                 </div>
             </div>
@@ -257,7 +257,30 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const episodes = document.querySelectorAll('.episode');
+            const player = document.getElementById('player');
 
+            episodes.forEach(episode => {
+                episode.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // Remove active class from all episodes
+                    episodes.forEach(ep => ep.classList.remove('active'));
+                    // Add active class to the clicked episode
+                    this.classList.add('active');
+                    // Update video source
+                    player.src = this.getAttribute('data-video');
+                    player.play();
+                });
+            });
+        });
+    </script>
+    <style>
+        .episode.active {
+            color: red;
+        }
+    </style>
 </body>
 
 </html>
