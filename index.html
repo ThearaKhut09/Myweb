@@ -792,28 +792,6 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-
-    <script>
-        // Function to toggle night and light mode
-        function toggleMode() {
-            const body = document.body;
-            body.classList.toggle('night-mode');
-            // Save the mode preference in localStorage
-            if (body.classList.contains('night-mode')) {
-                localStorage.setItem('theme', 'night');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-        }
-
-        // Check localStorage for saved theme preference
-        window.onload = function () {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'night') {
-                document.body.classList.add('night-mode');
-            }
-        };
-    </script>
 </body>
 
 </html>
